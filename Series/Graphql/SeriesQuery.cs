@@ -8,11 +8,8 @@ namespace Series.GraphQL
 {
     public class SeriesQuery : ObjectGraphType<object>
     {
-        private readonly SeriesContext seriesContext;
-        public SeriesQuery(IServiceProvider provider)
+        public SeriesQuery()
         {
-            //seriesContext = provider.GetRequiredService<SeriesContext>();
-
             Field<SerieType, Serie>()
                 .Name("serie")
                 .Argument<NonNullGraphType<IdGraphType>>("id", "The unique Id of the serie.")

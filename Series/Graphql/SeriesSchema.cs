@@ -7,7 +7,7 @@ namespace Series.GraphQL
         public SeriesSchema(IServiceProvider serviceProvider) : base(serviceProvider)
         {
             Query = serviceProvider.GetRequiredService<SeriesQuery>();
-            Mutation = serviceProvider.GetRequiredService<SeriesMutation>();
+            //Mutation = serviceProvider.GetRequiredService<SeriesMutation>();
         }
     }
 }

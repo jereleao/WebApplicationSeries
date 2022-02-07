@@ -9,11 +9,11 @@
     }
   },
   "profiles": {
-    "WebApplication1": {
+    "Series": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
-      "launchUrl": "swagger",
+      "launchUrl": "ui/playground",
       "applicationUrl": "http://localhost:5262",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
