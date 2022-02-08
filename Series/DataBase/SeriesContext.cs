@@ -6,10 +6,10 @@ namespace Series.DataBase
     public class SeriesContext : DbContext
     {
         public DbSet<Serie> Series { get; set; }
+        public DbSet<Category> Categories { get; set; }
 
         public SeriesContext(DbContextOptions options) : base(options)
         {
-
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

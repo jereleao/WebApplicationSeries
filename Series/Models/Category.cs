@@ -1,5 +1,4 @@
-﻿using System.Collections.ObjectModel;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Series.Models
 {
@@ -11,7 +10,5 @@ namespace Series.Models
         [Required]
         [MaxLength(200)]
         public string Description { get; set; } = string.Empty;
-        public Collection<Serie> Series { get; set; }
-        
     }
 }

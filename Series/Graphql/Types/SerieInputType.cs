@@ -8,9 +8,7 @@ namespace Series.GraphQL.Types
         public SerieInputType()
         {
             Name = "SerieInput";
-            Description = "Data to add a Serie";
-
-            Field(s => s.Title).Description("Serie's Title");
+            Field<NonNullGraphType<StringGraphType>>("title");
         }
     }
 }

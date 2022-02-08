@@ -1,6 +1,6 @@
 ﻿using GraphQL;
 using GraphQL.Types;
-using Series.DataBase;
+using Series.Database.Interfaces;
 using Series.GraphQL.Types;
 using Series.Models;
 
@@ -8,23 +8,25 @@ namespace Series.GraphQL
 {
     public class SeriesQuery : ObjectGraphType<object>
     {
-        public SeriesQuery()
+        private readonly ISerieRepository _repository;
+        public SeriesQuery(ISerieRepository repository)
         {
+            _repository = repository;
+
             Field<SerieType, Serie>()
                 .Name("serie")
                 .Argument<NonNullGraphType<IdGraphType>>("id", "The unique Id of the serie.")
-                .Resolve(context =>
+                .ResolveAsync(context =>
                 {
                     var id = context.GetArgument<int>("id");
-                    return new Serie(); //repository.GetAsync(id);
+                    return _repository.GetAsync(id);
                 });
 
             Field<ListGraphType<SerieType>>()
                 .Name("series")
                 .Resolve(context =>
                 {
-                    var seriesContext = context.RequestServices.GetRequiredService<SeriesContext>();
-                    return seriesContext.Series.ToList();
+                    return _repository.GetAll();
                 });
         }
     }

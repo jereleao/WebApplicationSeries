@@ -12,7 +12,6 @@ namespace Series.Models
         public string Description { get; set; } = string.Empty;
         [Required]
         public int CategoryId { get; set; }
-        public Category Category { get; set; }
         public DateTime ReleaseDate { get; set; }
 
     }
