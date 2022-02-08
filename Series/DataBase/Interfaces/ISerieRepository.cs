@@ -6,5 +6,6 @@ namespace Series.Database.Interfaces
     {
         Task<IEnumerable<Serie>> GetAll();
         Task<IEnumerable<Serie>> GetSeriesByCategory(int id);
+        bool Delete(int id);
     }
 }

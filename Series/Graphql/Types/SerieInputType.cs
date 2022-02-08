@@ -8,7 +8,10 @@ namespace Series.GraphQL.Types
         public SerieInputType()
         {
             Name = "SerieInput";
-            Field<NonNullGraphType<StringGraphType>>("title");
+            Field<StringGraphType>("title");
+            Field<StringGraphType>("description");
+            Field<IntGraphType>("categoryId");
+            Field<DateGraphType>("releaseDate", "yyyy-MM-dd");
         }
     }
 }

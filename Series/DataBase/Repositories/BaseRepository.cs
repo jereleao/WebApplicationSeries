@@ -1,10 +1,11 @@
 ﻿
 using Series.Database.Interfaces;
 using Series.DataBase;
+using Series.Models;
 
 namespace Series.Database.Repositories
 {
-    internal class BaseRepository<T> : IBaseRepository<T> where T : class
+    internal class BaseRepository<T> : IBaseRepository<T> where T : BaseEntity
     {
         protected readonly SeriesContext _context;
         public BaseRepository(SeriesContext context)
@@ -13,10 +14,12 @@ namespace Series.Database.Repositories
         }
         public T Add(T item)
         {
+            item.createdAt = DateTime.Now;
             return _context.Set<T>().Add(item).Entity;
         }
         public T Update(T item)
         {
+            item.updatedAt = DateTime.Now;
             return _context.Update(item).Entity;
         }
 

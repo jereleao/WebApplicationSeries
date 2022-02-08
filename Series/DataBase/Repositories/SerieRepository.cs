@@ -11,6 +11,14 @@ namespace Series.Database.Repositories
         {
         }
 
+        public bool Delete(int id)
+        {
+            Serie? serie = _context.Series.Find(id);
+            if (serie == null) return false;
+            _context.Series.Remove(serie);
+            return true;
+        }
+
         public async Task<IEnumerable<Serie>> GetAll()
         {
             return await _context.Series.ToListAsync();
@@ -20,5 +28,7 @@ namespace Series.Database.Repositories
         {
             return await _context.Series.Where(s => s.CategoryId == categoryId).ToListAsync();
         }
+
+
     }
 }
